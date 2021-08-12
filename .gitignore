@@ -38,3 +38,8 @@ hs_err_pid*
 # Maven
 log/
 target/
+!.mvn/wrapper/maven-wrapper.jar
+/.mvn/
+/mvnw
+/mvnw.bat
+mvnw.cmd
