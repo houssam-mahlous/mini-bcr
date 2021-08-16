@@ -10,12 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Data // Lombok: adds getters and setters
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Entity // This tells Hibernate to make a table out of this class
-@Data // Lombok: adds getters and setters
-public class Mention{
+public class Mention {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
