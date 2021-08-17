@@ -1,11 +1,12 @@
 package com.brandwatch.minibcr.common.repository;
 
-import com.brandwatch.minibcr.common.domain.Mention;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import com.brandwatch.minibcr.common.domain.Mention;
 
 @Component
 public class MentionRowMapper implements RowMapper<Mention> {

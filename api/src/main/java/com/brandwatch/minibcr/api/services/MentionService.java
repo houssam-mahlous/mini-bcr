@@ -1,13 +1,15 @@
 package com.brandwatch.minibcr.api.services;
 
-import com.brandwatch.minibcr.common.domain.Mention;
-import com.brandwatch.minibcr.common.repository.MentionRepository;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-import java.util.List;
+import com.brandwatch.minibcr.common.domain.Mention;
+import com.brandwatch.minibcr.common.repository.MentionRepository;
 
 @Service
 public class MentionService {
@@ -21,17 +23,17 @@ public class MentionService {
      * TODO: Use a schema that can be run with docker
      */
     @PostConstruct
-    public void initMentions(){
+    public void initMentions() {
         mentionRepository.deleteAll(); //Temporary for now to reset the table in local db
         mentionRepository.insert(new Mention(1, "This is my first tweet"));
         mentionRepository.insert(new Mention(2, "This is my second tweet"));
     }
 
-    public List<Mention> getMentions(){
+    public List<Mention> getMentions() {
         return mentionRepository.findAll();
     }
 
-    public Mention getMentionById(Long id){
+    public Mention getMentionById(Long id) {
         return mentionRepository.findMentionById(id);
     }
 
