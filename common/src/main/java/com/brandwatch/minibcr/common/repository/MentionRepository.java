@@ -1,9 +1,15 @@
 package com.brandwatch.minibcr.common.repository;
 
 import com.brandwatch.minibcr.common.domain.Mention;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface MentionRepository extends JpaRepository<Mention, Long> {
+import java.util.List;
+
+public interface MentionRepository{
+    void insert(Mention mention);
+
+    List<Mention> findAll();
+
+    Mention findMentionById(long mentionId);
+
+    void deleteMention(long mentionId);
 }

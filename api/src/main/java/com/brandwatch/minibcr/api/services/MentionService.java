@@ -18,10 +18,9 @@ public class MentionService {
 
     @PostConstruct
     public void initMentions(){
-        mentionRepository.saveAll(Stream.of
-                        (new Mention(1, "This is my first tweet"),
-                                new Mention(2, "This is my second tweet"))
-                .collect(Collectors.toList()));
+        mentionRepository.insert(new Mention(1, "This is my first tweet"));
+        mentionRepository.insert(new Mention(2, "This is my second tweet"));
+
     }
 
     public List<Mention> getMentions(){
