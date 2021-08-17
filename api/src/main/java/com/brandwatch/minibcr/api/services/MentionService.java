@@ -25,8 +25,8 @@ public class MentionService {
     @PostConstruct
     public void initMentions() {
         mentionRepository.deleteAll(); //Temporary for now to reset the table in local db
-        mentionRepository.save(new Mention(1, "This is my first tweet"));
-        mentionRepository.save(new Mention(2, "This is my second tweet"));
+        mentionRepository.save(new Mention("This is my first tweet"));
+        mentionRepository.save(new Mention("This is my second tweet"));
     }
 
     public List<Mention> getMentions() {
