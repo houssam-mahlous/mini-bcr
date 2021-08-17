@@ -6,7 +6,7 @@ import com.brandwatch.minibcr.common.domain.Mention;
 
 public interface MentionRepository {
 
-    void insert(Mention mention);
+    void save(Mention mention);
 
     List<Mention> findAll();
 

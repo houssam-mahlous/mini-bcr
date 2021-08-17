@@ -25,8 +25,8 @@ public class MentionService {
     @PostConstruct
     public void initMentions() {
         mentionRepository.deleteAll(); //Temporary for now to reset the table in local db
-        mentionRepository.insert(new Mention(1, "This is my first tweet"));
-        mentionRepository.insert(new Mention(2, "This is my second tweet"));
+        mentionRepository.save(new Mention(1, "This is my first tweet"));
+        mentionRepository.save(new Mention(2, "This is my second tweet"));
     }
 
     public List<Mention> getMentions() {
@@ -37,10 +37,10 @@ public class MentionService {
         return mentionRepository.findMentionById(id);
     }
 
-    public void insertMention(String text) {
+    public void saveMention(String text) {
         if (StringUtils.isNotBlank(text)) {
             Mention mention = new Mention(text);
-            mentionRepository.insert(mention);
+            mentionRepository.save(mention);
         } else {
             throw new RuntimeException("Mention is not defined");
         }

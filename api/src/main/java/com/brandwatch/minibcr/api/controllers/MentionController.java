@@ -24,14 +24,14 @@ public class MentionController {
         return mentionService.getMentions();
     }
 
-    @GetMapping("/mentions/:id")
+    @GetMapping("/mentions/{id}")
     public Mention getMentionById(@PathVariable long id) {
         return mentionService.getMentionById(id);
     }
 
     @PostMapping("/mentions")
     public void saveQuery(@RequestParam("text") String text) {
-        mentionService.insertMention(text);
+        mentionService.saveMention(text);
     }
 
     @DeleteMapping("/mentions/{id}")

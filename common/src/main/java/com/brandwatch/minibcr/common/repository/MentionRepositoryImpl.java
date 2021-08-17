@@ -41,7 +41,7 @@ public class MentionRepositoryImpl extends JdbcDaoSupport implements MentionRepo
     }
 
     @Override
-    public void insert(Mention mention) {
+    public void save(Mention mention) {
         String sql = "INSERT INTO " + MENTIONS_TABLE + "(text) VALUES (:text)";
         namedParameterJdbcTemplate.update(sql,
                 new MapSqlParameterSource("text", mention.getText()));
