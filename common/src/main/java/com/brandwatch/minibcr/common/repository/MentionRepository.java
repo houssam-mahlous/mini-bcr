@@ -12,4 +12,6 @@ public interface MentionRepository{
     Mention findMentionById(long mentionId);
 
     void deleteMention(long mentionId);
+
+    void deleteAll();
 }

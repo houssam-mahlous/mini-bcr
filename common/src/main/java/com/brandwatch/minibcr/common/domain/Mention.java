@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.apache.kafka.common.protocol.types.Field;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,4 +21,8 @@ public class Mention {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String text;
+
+    public Mention(String text){
+        this.text = text;
+    }
 }
