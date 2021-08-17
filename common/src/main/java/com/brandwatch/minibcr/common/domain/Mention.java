@@ -5,25 +5,43 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@Data // Lombok: adds getters and setters
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
-@Entity
-// This tells Hibernate to make a table out of this class
+@Entity// This tells Hibernate to make a table out of this class
 public class Mention {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO) private long id;
     private String text;
+
+    public Mention(long id, String text) {
+        this.id = id;
+        this.text = text;
+    }
 
     public Mention(String text) {
         this.text = text;
+    }
+
+    public Mention() {
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @Override
+    public String toString() {
+        return "Mention{" + "id=" + id + ", text='" + text + '\'' + '}';
     }
 }
