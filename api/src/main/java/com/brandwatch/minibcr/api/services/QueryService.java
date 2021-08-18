@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.brandwatch.minibcr.common.domain.Query;
-import com.brandwatch.minibcr.common.repository.QueryRepository;
+import com.brandwatch.minibcr.common.repository.query.QueryRepository;
 
 @Service
 public class QueryService {

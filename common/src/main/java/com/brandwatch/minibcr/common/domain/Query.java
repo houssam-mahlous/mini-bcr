@@ -15,8 +15,6 @@ public class Query {
         this.definition = definition;
     }
 
-    public Query(){}
-
     public long getId() {
         return id;
     }

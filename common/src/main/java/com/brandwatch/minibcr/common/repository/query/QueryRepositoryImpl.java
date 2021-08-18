@@ -1,4 +1,4 @@
-package com.brandwatch.minibcr.common.repository;
+package com.brandwatch.minibcr.common.repository.query;
 
 import java.util.List;
 
@@ -44,9 +44,7 @@ public class QueryRepositoryImpl implements QueryRepository {
         try {
             String sql = " SELECT " + ALL_FIELDS + " FROM " + QUERY_TABLE + " WHERE "
                     + " id = :queryId ";
-
-            //TODO: Why is casting here required but it's not required for mentions?
-            query = (Query) namedParameterJdbcTemplate.queryForObject(sql,
+            query = namedParameterJdbcTemplate.queryForObject(sql,
                     new MapSqlParameterSource("queryId", queryId), queryRowMapper);
         } catch (EmptyResultDataAccessException exception) {
             logger.info("Query with id {} does not exist...", queryId);

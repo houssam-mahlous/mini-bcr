@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.brandwatch.minibcr.common.domain.Mention;
-import com.brandwatch.minibcr.common.repository.MentionRepository;
+import com.brandwatch.minibcr.common.repository.mention.MentionRepository;
 
 @Service
 public class MentionService {

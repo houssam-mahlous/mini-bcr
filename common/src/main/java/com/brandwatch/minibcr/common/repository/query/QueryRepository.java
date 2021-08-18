@@ -1,4 +1,4 @@
-package com.brandwatch.minibcr.common.repository;
+package com.brandwatch.minibcr.common.repository.query;
 
 import java.util.List;
 

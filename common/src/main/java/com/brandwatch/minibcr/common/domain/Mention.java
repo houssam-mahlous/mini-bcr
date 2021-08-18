@@ -19,9 +19,6 @@ public class Mention {
         this.text = text;
     }
 
-    public Mention() {
-    }
-
     public String getText() {
         return text;
     }
