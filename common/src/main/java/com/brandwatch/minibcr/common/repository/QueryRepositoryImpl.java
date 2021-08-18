@@ -7,9 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.brandwatch.minibcr.common.domain.Query;
 
+@Repository
 public class QueryRepositoryImpl implements QueryRepository{
 
     private static final String QUERY_TABLE = "query";

@@ -4,9 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import com.brandwatch.minibcr.common.domain.Query;
 
+@Component
 public class QueryRowMapper implements RowMapper {
 
     @Override
