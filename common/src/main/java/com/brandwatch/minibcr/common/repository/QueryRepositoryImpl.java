@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.brandwatch.minibcr.common.domain.Query;
 
 @Repository
-public class QueryRepositoryImpl implements QueryRepository{
+public class QueryRepositoryImpl implements QueryRepository {
 
     private static final String QUERY_TABLE = "queries";
     private static final String ALL_FIELDS = "id, definition";
@@ -49,7 +49,7 @@ public class QueryRepositoryImpl implements QueryRepository{
             query = (Query) namedParameterJdbcTemplate.queryForObject(sql,
                     new MapSqlParameterSource("queryId", queryId), queryRowMapper);
         } catch (EmptyResultDataAccessException exception) {
-            logger.info("Mention with id {} does not exist...", queryId);
+            logger.info("Query with id {} does not exist...", queryId);
         }
 
         return query;

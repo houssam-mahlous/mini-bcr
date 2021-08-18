@@ -6,12 +6,12 @@ public class Query {
 
     private String definition;
 
-    public Query(long id, String definition){
+    public Query(long id, String definition) {
         this.id = id;
         this.definition = definition;
     }
 
-    public Query(String definition){
+    public Query(String definition) {
         this.definition = definition;
     }
 
