@@ -5,7 +5,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -19,14 +18,12 @@ public class MentionRepositoryImpl implements MentionRepository {
     private static final String ALL_FIELDS = " id, text";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final MentionRowMapper mentionRowMapper;
-    private final JdbcTemplate jdbcTemplate;
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     public MentionRepositoryImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate,
-            MentionRowMapper mentionRowMapper, JdbcTemplate jdbcTemplate) {
+            MentionRowMapper mentionRowMapper) {
         this.mentionRowMapper = mentionRowMapper;
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
-        this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
@@ -66,6 +63,6 @@ public class MentionRepositoryImpl implements MentionRepository {
     @Override
     public void deleteAll() {
         String sql = "DELETE FROM " + MENTIONS_TABLE;
-        jdbcTemplate.update(sql);
+        namedParameterJdbcTemplate.getJdbcTemplate().update(sql);
     }
 }
