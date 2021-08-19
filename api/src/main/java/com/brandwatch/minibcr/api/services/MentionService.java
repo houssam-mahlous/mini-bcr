@@ -8,6 +8,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.brandwatch.minibcr.api.exceptions.MentionNotFoundException;
+import com.brandwatch.minibcr.api.exceptions.QueryNotFoundException;
 import com.brandwatch.minibcr.common.domain.Mention;
 import com.brandwatch.minibcr.common.repository.mention.MentionRepository;
 
@@ -34,7 +36,11 @@ public class MentionService {
     }
 
     public Mention getMentionById(Long id) {
-        return mentionRepository.findMentionById(id);
+        Mention mention = mentionRepository.findMentionById(id);
+        if (mention == null) {
+            throw new MentionNotFoundException(id);
+        }
+        return mention;
     }
 
     public void saveMention(String text) {

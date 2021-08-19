@@ -8,6 +8,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.brandwatch.minibcr.api.exceptions.EmptyQueryException;
+import com.brandwatch.minibcr.api.exceptions.QueryNotFoundException;
 import com.brandwatch.minibcr.common.domain.Query;
 import com.brandwatch.minibcr.common.repository.query.QueryRepository;
 
@@ -34,7 +36,11 @@ public class QueryService {
     }
 
     public Query getQueryById(Long id) {
-        return queryRepository.findQueryById(id);
+        Query query = queryRepository.findQueryById(id);
+        if (query == null) {
+            throw new QueryNotFoundException(id);
+        }
+        return query;
     }
 
     public void saveQuery(String text) {
@@ -42,7 +48,7 @@ public class QueryService {
             Query query = new Query(text);
             queryRepository.save(query);
         } else {
-            throw new RuntimeException("Query is not defined");
+            throw new EmptyQueryException();
         }
     }
 
