@@ -13,9 +13,6 @@ public class MentionRowMapper implements RowMapper<Mention> {
 
     @Override
     public Mention mapRow(ResultSet resultSet, int i) throws SQLException {
-        long id = resultSet.getLong("id");
-        String text = resultSet.getString("text");
-        Mention mention = new Mention(id, text);
-        return mention;
+        return new Mention(resultSet.getLong("id"), resultSet.getString("text"));
     }
 }

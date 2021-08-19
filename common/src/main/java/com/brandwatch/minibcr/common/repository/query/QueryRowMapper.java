@@ -13,9 +13,6 @@ public class QueryRowMapper implements RowMapper<Query> {
 
     @Override
     public Query mapRow(ResultSet resultSet, int i) throws SQLException {
-        long id = resultSet.getLong("id");
-        String definition = resultSet.getString("definition");
-        Query query = new Query(id, definition);
-        return query;
+        return new Query(resultSet.getLong("id"), resultSet.getString("definition"));
     }
 }
