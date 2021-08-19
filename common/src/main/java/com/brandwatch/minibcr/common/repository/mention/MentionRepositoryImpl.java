@@ -1,4 +1,4 @@
-package com.brandwatch.minibcr.common.repository;
+package com.brandwatch.minibcr.common.repository.mention;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class MentionRepositoryImpl implements MentionRepository {
 
     private static final String MENTIONS_TABLE = "mentions";
     private static final String ALL_FIELDS = " id, text";
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private static final Logger logger = LoggerFactory.getLogger(MentionRepositoryImpl.class);
     private final MentionRowMapper mentionRowMapper;
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 

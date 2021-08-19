@@ -1,4 +1,4 @@
-package com.brandwatch.minibcr.common.repository;
+package com.brandwatch.minibcr.common.repository.mention;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,9 +13,6 @@ public class MentionRowMapper implements RowMapper<Mention> {
 
     @Override
     public Mention mapRow(ResultSet resultSet, int i) throws SQLException {
-        Mention mention = new Mention();
-        mention.setId(resultSet.getLong("id"));
-        mention.setText(resultSet.getString("text"));
-        return mention;
+        return new Mention(resultSet.getLong("id"), resultSet.getString("text"));
     }
 }

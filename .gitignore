@@ -43,5 +43,3 @@ target/
 /mvnw
 /mvnw.bat
 mvnw.cmd
-
-application.properties
