@@ -19,17 +19,19 @@ from inside the project directory.
 
 In order to use your own developer credentials, create a JSON file and store the credentials within
 
-#### Using a json file
+### Using a json file
 
 File example :
 
-```
+`
 {
   "apiKey": "xxx",
   "apiSecretKey": "xxx",
+  "accessToken": "xxx",
+  "accessSecretToken": "xxx",
   "bearerToken": "xxx"
 }
-```
+`
 
 ##### With program argument
 
