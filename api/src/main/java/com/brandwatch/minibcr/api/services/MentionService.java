@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.brandwatch.minibcr.api.exceptions.MentionNotFoundException;
-import com.brandwatch.minibcr.api.exceptions.QueryNotFoundException;
 import com.brandwatch.minibcr.common.domain.Mention;
 import com.brandwatch.minibcr.common.repository.mention.MentionRepository;
 

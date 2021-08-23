@@ -15,7 +15,7 @@ import com.brandwatch.minibcr.common.repository.query.QueryRepository;
 
 @Service
 public class QueryService {
-    
+
     @Autowired
     private QueryRepository queryRepository;
 
