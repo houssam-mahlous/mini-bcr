@@ -23,17 +23,9 @@ In order to use your own developer credentials, create a JSON file and store the
 
 File example :
 
-`
-{
-  "apiKey": "xxx",
-  "apiSecretKey": "xxx",
-  "accessToken": "xxx",
-  "accessSecretToken": "xxx",
-  "bearerToken": "xxx"
-}
-`
+`{"apiKey": "xxx","apiSecretKey": "xxx","accessToken": "xxx","accessSecretToken": "xxx","bearerToken": "xxx"}`
 
-##### With program argument
+#### With program argument
 
 Pass through java argument your file path like `-Dtwitter.credentials.file.path=/your/path/to/json`
 This can be done in intelliJ by editing the configuration and adding the same line to VM arguments
