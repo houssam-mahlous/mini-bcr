@@ -8,6 +8,8 @@
         <module>api</module>
         <module>common</module>
         <module>crawler</module>
+        <module>storage</module>
+        <module>mention-storage</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

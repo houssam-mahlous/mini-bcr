@@ -17,7 +17,6 @@ public class Crawler {
 
     @Scheduled(fixedDelay = 5000)
     public void getResources() {
-        Resource resource = crawlerService.fetchTweet();
-        System.out.println(resource);
+        crawlerService.fetchTweets();
     }
 }
