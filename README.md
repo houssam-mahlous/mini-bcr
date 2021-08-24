@@ -54,6 +54,15 @@ NB : Your twitter credentials can be found in [your twitter app page](https://de
   `bin/kafka-topics.sh --create --topic resources --bootstrap-server localhost:9092`
 - Add KAFKA_BOOTSTRAP_SERVERS to your environment variables (in this case, value is `localhost:9092`)
 
+## Solr Configuration
+
+- Follow the instructions [here](https://solr.apache.org/guide/6_6/installing-solr.html#installing-solr) to install
+  Solr. Choose the binary files.
+- After extracting the Solr distribution archive to a directory of your choosing, start a solr cloud session by running
+  `bin/solr -e cloud` from the Solr directory.
+- Follow the steps and create a collection called resources.
+- Add SOLR_HOST to your environment variables and set its value.
+
 ## How to use
 
 The API has a couple of endpoints to mainly fetch and update mentions and queries.
