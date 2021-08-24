@@ -11,13 +11,17 @@ import com.github.redouane59.twitter.signature.TwitterCredentials;
 public class Config {
 
     @Value("${twitter.accessToken}")
-    String accessToken;
+    private String accessToken;
+
     @Value("${twitter.accessTokenSecret}")
-    String accessTokenSecret;
+    private String accessTokenSecret;
+
     @Value("${twitter.apiKey}")
-    String apiKey;
+    private String apiKey;
+
     @Value("${twitter.apiSecretKey}")
     private String apiSecretKey;
+
     @Value("${twitter.bearerToken}")
     private String bearerToken;
 
