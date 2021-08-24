@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
+import com.brandwatch.minibcr.common.domain.Resource;
+
 @Component
 public class ResourceConsumer {
 
@@ -12,7 +14,7 @@ public class ResourceConsumer {
 
     //TODO: Store the resources in Solr
     @KafkaListener(topics = "resources", groupId = "resource-matching")
-    public void consumeResources(String content) {
-        log.info("Resource consumed from kafka topic resources with content: ", content);
+    public void consumeResources(Resource resource) {
+        log.info("Resource consumed from kafka topic resources");
     }
 }
