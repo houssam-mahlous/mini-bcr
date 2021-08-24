@@ -16,8 +16,11 @@ import com.brandwatch.minibcr.common.domain.Mention;
 @RestController
 public class MentionController {
 
-    @Autowired
-    private MentionService mentionService;
+    private final MentionService mentionService;
+
+    public MentionController(MentionService mentionService) {
+        this.mentionService = mentionService;
+    }
 
     @GetMapping("/mentions")
     public List<Mention> getMentions() {

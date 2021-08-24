@@ -15,6 +15,36 @@ Make sure maven is installed on your machine. Then build by running
 
 from inside the project directory.
 
+## Twitter Client Configuration
+
+There are multiple ways to use your own developer credentials
+
+### Using a json file
+
+File example :
+
+`{"apiKey": "xxx","apiSecretKey": "xxx","accessToken": "xxx","accessSecretToken": "xxx","bearerToken": "xxx"}`
+
+#### With program argument
+
+Pass through java argument your file path like `-Dtwitter.credentials.file.path=/your/path/to/json`
+This can be done in intelliJ by editing the configuration and adding the same line to VM arguments
+
+### Using application.properties file
+
+Just set up the following twitter credentials in your environment(the `application.properties` file in this project
+already has defined parameters) :
+
+`ACCESS_TOKEN=<your_access_token>`
+
+`ACCESS_TOKEN_SECRET=<your_access_token_secret>`
+
+`API_KEY=<your_api_key>`
+
+`API_SECRET_KEY=<your_api_secret_key>`
+
+`BEARER_TOKEN=<your_bearer_token>`
+
 ## How to use
 
 The API has a couple of endpoints to mainly fetch and update mentions and queries.

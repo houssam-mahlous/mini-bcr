@@ -15,9 +15,12 @@ import com.brandwatch.minibcr.common.repository.query.QueryRepository;
 
 @Service
 public class QueryService {
-    
-    @Autowired
-    private QueryRepository queryRepository;
+
+    private final QueryRepository queryRepository;
+
+    public QueryService(QueryRepository queryRepository) {
+        this.queryRepository = queryRepository;
+    }
 
     /**
      * Resets the queries table in the local database

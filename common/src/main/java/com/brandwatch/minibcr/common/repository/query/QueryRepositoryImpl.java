@@ -16,7 +16,7 @@ public class QueryRepositoryImpl implements QueryRepository {
 
     private static final String QUERY_TABLE = "queries";
     private static final String ALL_FIELDS = "id, definition";
-    private static final  Logger logger = LoggerFactory.getLogger(QueryRepositoryImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(QueryRepositoryImpl.class);
     private final QueryRowMapper queryRowMapper;
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 

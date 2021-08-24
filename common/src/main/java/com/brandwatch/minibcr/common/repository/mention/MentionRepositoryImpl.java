@@ -21,7 +21,7 @@ public class MentionRepositoryImpl implements MentionRepository {
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     public MentionRepositoryImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate,
-            MentionRowMapper mentionRowMapper) {
+                                 MentionRowMapper mentionRowMapper) {
         this.mentionRowMapper = mentionRowMapper;
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
