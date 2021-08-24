@@ -45,6 +45,15 @@ already has defined parameters) :
 
 `BEARER_TOKEN=<your_bearer_token>`
 
+NB : Your twitter credentials can be found in [your twitter app page](https://developer.twitter.com/en/apps)
+
+## Kafka Configuration
+
+- Follow the instructions [here](https://kafka.apache.org/quickstart) to download and start the Kafka environment.
+- Create a kafka topic called resources :
+  `bin/kafka-topics.sh --create --topic resources --bootstrap-server localhost:9092`
+- Add KAFKA_BOOTSTRAP_SERVERS to your environment variables (in this case, value is `localhost:9092`)
+
 ## How to use
 
 The API has a couple of endpoints to mainly fetch and update mentions and queries.
