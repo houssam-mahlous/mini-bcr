@@ -1,6 +1,5 @@
 package com.brandwatch.minibcr.crawler.crawlerjob;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -10,8 +9,11 @@ import com.brandwatch.minibcr.crawler.services.CrawlerService;
 @Component
 public class Crawler {
 
-    @Autowired
-    CrawlerService crawlerService;
+    private final CrawlerService crawlerService;
+
+    public Crawler(CrawlerService crawlerService) {
+        this.crawlerService = crawlerService;
+    }
 
     @Scheduled(fixedDelay = 5000)
     public void getResources() {

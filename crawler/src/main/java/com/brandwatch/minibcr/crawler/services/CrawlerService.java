@@ -1,6 +1,7 @@
 package com.brandwatch.minibcr.crawler.services;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.redouane59.twitter.TwitterClient;
@@ -10,7 +11,9 @@ import com.brandwatch.minibcr.common.domain.Resource;
 
 @Service
 public class CrawlerService {
-    private static final TwitterClient twitterClient = new TwitterClient();
+
+    @Autowired
+    private TwitterClient twitterClient;
 
     //TODO: Fetch a bunch of tweets (currently limited by the API)
     public Resource fetchTweet() {

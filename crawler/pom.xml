@@ -35,7 +35,6 @@
             <artifactId>twittered</artifactId>
             <version>1.26</version>
         </dependency>
-
     </dependencies>
 
 </project>
