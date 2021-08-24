@@ -15,8 +15,11 @@ import com.brandwatch.minibcr.common.repository.mention.MentionRepository;
 @Service
 public class MentionService {
 
-    @Autowired
-    private MentionRepository mentionRepository;
+    private final MentionRepository mentionRepository;
+
+    public MentionService(MentionRepository mentionRepository) {
+        this.mentionRepository = mentionRepository;
+    }
 
     /**
      * Resets the mentions table in the local database

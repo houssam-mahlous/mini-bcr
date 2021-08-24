@@ -3,6 +3,7 @@ package com.brandwatch.minibcr.common.domain;
 public class Mention {
 
     private long id;
+
     private String text;
 
     public Mention(long id, String text) {

@@ -12,8 +12,11 @@ import com.brandwatch.minibcr.common.domain.Resource;
 @Service
 public class CrawlerService {
 
-    @Autowired
-    private TwitterClient twitterClient;
+    private final TwitterClient twitterClient;
+
+    public CrawlerService(TwitterClient twitterClient) {
+        this.twitterClient = twitterClient;
+    }
 
     //TODO: Fetch a bunch of tweets (currently limited by the API)
     public Resource fetchTweet() {

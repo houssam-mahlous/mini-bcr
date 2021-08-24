@@ -16,8 +16,11 @@ import com.brandwatch.minibcr.common.domain.Query;
 @RestController
 public class QueryController {
 
-    @Autowired
-    private QueryService queryService;
+    private final QueryService queryService;
+
+    public QueryController(QueryService queryService) {
+        this.queryService = queryService;
+    }
 
     @GetMapping("/queries")
     public List<Query> getQueries() {
