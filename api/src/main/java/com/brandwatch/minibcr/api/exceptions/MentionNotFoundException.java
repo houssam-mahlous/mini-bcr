@@ -1,13 +1,13 @@
 package com.brandwatch.minibcr.api.exceptions;
 
 public class MentionNotFoundException extends RuntimeException {
-    private final long id;
+    private final String id;
 
-    public MentionNotFoundException(long id) {
+    public MentionNotFoundException(String id) {
         this.id = id;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 }

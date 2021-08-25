@@ -28,17 +28,8 @@ public class MentionController {
     }
 
     @GetMapping("/mentions/{id}")
-    public Mention getMentionById(@PathVariable long id) {
+    public Mention getMentionById(@PathVariable String id) {
         return mentionService.getMentionById(id);
     }
 
-    @PostMapping("/mentions")
-    public void saveQuery(@RequestParam("text") String text) {
-        mentionService.saveMention(text);
-    }
-
-    @DeleteMapping("/mentions/{id}")
-    public void deleteQuery(@PathVariable long id) {
-        mentionService.deleteMentionById(id);
-    }
 }
