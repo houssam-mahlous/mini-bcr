@@ -71,18 +71,9 @@ The API has a couple of endpoints to mainly fetch and update mentions and querie
 
 Returns all mentions stored in the DB.
 
-### Post `/mentions`
-
-Inserts a mention to the DB. Mention parameters (text) should be specified in the request. For
-example: `POST "/mentions?text=This is a tweet"`
-
 ### Get `/mentions/{id}`
 
 Returns the mention with the given ID if present, otherwise returns an error message.
-
-### Delete `/mentions/{id}`
-
-Deletes mention with given id from the DB if present, otherwise returns an error message.
 
 ### Get `/queries`
 
