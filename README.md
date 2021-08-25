@@ -54,6 +54,15 @@ NB : Your twitter credentials can be found in [your twitter app page](https://de
   `bin/kafka-topics.sh --create --topic resources --bootstrap-server localhost:9092`
 - Add KAFKA_BOOTSTRAP_SERVERS to your environment variables (in this case, value is `localhost:9092`)
 
+## Solr Configuration
+
+- Follow the instructions [here](https://solr.apache.org/guide/6_6/installing-solr.html#installing-solr) to install
+  Solr. Choose the binary files.
+- After extracting the Solr distribution archive to a directory of your choosing, start a solr cloud session by running
+  `bin/solr -e cloud` from the Solr directory.
+- Follow the steps and create a collection called resources.
+- Add SOLR_HOST to your environment variables and set its value.
+
 ## How to use
 
 The API has a couple of endpoints to mainly fetch and update mentions and queries.
@@ -62,18 +71,9 @@ The API has a couple of endpoints to mainly fetch and update mentions and querie
 
 Returns all mentions stored in the DB.
 
-### Post `/mentions`
-
-Inserts a mention to the DB. Mention parameters (text) should be specified in the request. For
-example: `POST "/mentions?text=This is a tweet"`
-
 ### Get `/mentions/{id}`
 
 Returns the mention with the given ID if present, otherwise returns an error message.
-
-### Delete `/mentions/{id}`
-
-Deletes mention with given id from the DB if present, otherwise returns an error message.
 
 ### Get `/queries`
 
