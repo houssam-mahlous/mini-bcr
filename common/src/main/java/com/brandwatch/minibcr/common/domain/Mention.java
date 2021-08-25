@@ -9,8 +9,6 @@ import org.springframework.data.solr.core.mapping.SolrDocument;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-//the annotation @SolrDocument marks this class as a type that can be stored in solr database using Sping data
-//we should specifiy the collection in the database where this document will be stored in
 @SolrDocument(collection = "mentions")
 public class Mention {
 
