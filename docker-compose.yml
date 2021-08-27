@@ -11,8 +11,6 @@ services:
     depends_on:
       - solrdb
       - db
-    environment:
-      WAIT_HOSTS: db:5432, solrdb:8983
     env_file:
       - .env
 
@@ -45,7 +43,6 @@ services:
       # copy the sql script to create tables
       - ./db/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
 
-
   storage:
     build:
       context: storage/
@@ -62,7 +59,6 @@ services:
     image: wurstmeister/zookeeper
     ports:
       - "2181:2181"
-
 
   kafka:
     image: wurstmeister/kafka
