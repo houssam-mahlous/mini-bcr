@@ -43,3 +43,5 @@ target/
 /mvnw
 /mvnw.bat
 mvnw.cmd
+
+.env

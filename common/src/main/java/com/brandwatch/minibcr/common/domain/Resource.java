@@ -22,7 +22,8 @@ public class Resource {
         this.createdAt = createdAt;
     }
 
-    public Resource(){}
+    public Resource() {
+    }
 
     @Override
     public String toString() {

@@ -12,9 +12,8 @@ import com.brandwatch.minibcr.common.domain.Resource;
 @Service
 public class ResourceStoreService {
 
-    private final SolrClient solrClient;
-
     private static final String SOLR_RESOURCES_COLLECTION = "resources";
+    private final SolrClient solrClient;
 
     public ResourceStoreService(SolrClient solrClient) {
         this.solrClient = solrClient;

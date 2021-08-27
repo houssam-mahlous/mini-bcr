@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -20,10 +19,8 @@ import com.brandwatch.minibcr.common.domain.Resource;
 @Configuration
 public class KafkaConsumerConfig {
 
-    @Value("${spring.kafka.bootstrap-servers}")
-    private String bootstrapServers;
-
     private static final String CONSUMER_GROUP_ID = "resource-matching";
+    private final String bootstrapServers = System.getenv("SPRING_KAFKA_BOOTSTRAP_SERVERS");
 
     @Bean
     public ConsumerFactory<String, Resource> consumerFactory() {

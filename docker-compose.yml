@@ -1,0 +1,87 @@
+version: "3.3"
+
+services:
+  api:
+    build:
+      context: api/
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - solrdb
+      - db
+    environment:
+      WAIT_HOSTS: db:5432, solrdb:8983
+    env_file:
+      - .env
+
+  solrdb:
+    image: solr
+    restart: always
+    ports:
+      - "8983:8983"
+    env_file:
+      - .env
+    entrypoint:
+      - bash
+      - "-c"
+      - "precreate-core mentions; precreate-core resources; exec solr -f"
+    volumes:
+      - ./solrdb:/var/lib/solr/data
+
+  db:
+    image: postgres:13.1
+    restart: always
+    env_file:
+      - .env
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    ports:
+      - '5432:5432'
+    volumes:
+      # copy the sql script to create tables
+      - ./db/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+
+
+  storage:
+    build:
+      context: storage/
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - solrdb
+      - db
+      - kafka
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+
+
+  kafka:
+    image: wurstmeister/kafka
+    hostname: kafka
+    ports:
+      - "9092:9092"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - zookeeper
+    env_file:
+      - .env
+
+  crawler:
+    build:
+      context: crawler/
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - kafka
