@@ -3,7 +3,6 @@ package com.brandwatch.minibcr.crawler.crawlerjob;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.brandwatch.minibcr.common.domain.Resource;
 import com.brandwatch.minibcr.crawler.services.CrawlerService;
 
 @Component

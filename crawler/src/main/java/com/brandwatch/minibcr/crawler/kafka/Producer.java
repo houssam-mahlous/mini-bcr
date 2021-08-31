@@ -10,10 +10,9 @@ import com.brandwatch.minibcr.common.domain.Resource;
 @Component
 public class Producer {
 
-    private final KafkaTemplate<String, Resource> kafkaTemplate;
-
     private static final String KAFKA_TOPIC = "resources";
     private static final Logger log = LoggerFactory.getLogger(Producer.class);
+    private final KafkaTemplate<String, Resource> kafkaTemplate;
 
     public Producer(KafkaTemplate<String, Resource> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;

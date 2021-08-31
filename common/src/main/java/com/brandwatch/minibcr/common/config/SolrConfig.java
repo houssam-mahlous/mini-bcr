@@ -1,9 +1,8 @@
-package com.brandwatch.minibcr.storage.solr.config;
+package com.brandwatch.minibcr.common.config;
 
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.impl.XMLResponseParser;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.solr.core.SolrTemplate;
@@ -13,9 +12,11 @@ import org.springframework.data.solr.repository.config.EnableSolrRepositories;
 @EnableSolrRepositories(basePackages = "com.brandwatch.minibcr")
 public class SolrConfig {
 
+    private final String solrHost = System.getenv("SOLR_HOST");
+
     @Bean
-    public SolrClient solrClient(@Value("${spring.data.solr.host}") String solrHost) {
-        HttpSolrClient solrClient =  new HttpSolrClient.Builder(solrHost).build();
+    public SolrClient solrClient() {
+        HttpSolrClient solrClient = new HttpSolrClient.Builder(solrHost).build();
         solrClient.setParser(new XMLResponseParser());
         return solrClient;
     }

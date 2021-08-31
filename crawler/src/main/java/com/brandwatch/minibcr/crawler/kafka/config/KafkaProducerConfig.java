@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -17,8 +16,8 @@ import com.brandwatch.minibcr.common.domain.Resource;
 
 @Configuration
 public class KafkaProducerConfig {
-    @Value("${spring.kafka.bootstrap-servers}")
-    private String bootstrapServers;
+
+    private final String bootstrapServers = System.getenv("SPRING_KAFKA_BOOTSTRAP_SERVERS");
 
     @Bean
     public ProducerFactory<String, Resource> producerFactory() {

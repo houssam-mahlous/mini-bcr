@@ -6,7 +6,7 @@
 - Java 11
 - PostgresSQL
 
-## Build Instructions
+## Local Build Instructions
 
 Make sure maven is installed on your machine. Then build by running
 
@@ -62,6 +62,36 @@ NB : Your twitter credentials can be found in [your twitter app page](https://de
   `bin/solr -e cloud` from the Solr directory.
 - Follow the steps and create a collection called resources.
 - Add SOLR_HOST to your environment variables and set its value.
+
+## Docker Build Instructions
+
+Make sure docker and docker-compose are installed on your machine before running -the following commands from the
+project directory:
+
+- `mvn clean install`
+- `docker-compose up --build`
+
+You also need to create your own `.env` file in the main directory with the following keys:
+```bash
+SPRING_DATASOURCE_URL=xxx
+SPRING_DATASOURCE_USERNAME=xxx
+SPRING_DATASOURCE_PASSWORD=xxx
+POSTGRES_USER=xxx
+POSTGRES_PASSWORD=xxx
+POSTGRES_DB=xxx
+API_KEY=xxx
+API_SECRET_KEY=xxx
+ACCESS_TOKEN=xxx
+ACCESS_TOKEN_SECRET=xxx
+BEARER_TOKEN=xxx
+SPRING_KAFKA_BOOTSTRAP_SERVERS=xxx
+SOLR_HOST=xxx
+KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+KAFKA_LISTENERS=LISTENER_INTERNAL://kafka:29092,LISTENER_EXTERNAL://kafka:9092
+KAFKA_ADVERTISED_LISTENERS=LISTENER_INTERNAL://kafka:29092,LISTENER_EXTERNAL://kafka:9092
+KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=LISTENER_INTERNAL:PLAINTEXT,LISTENER_EXTERNAL:PLAINTEXT
+KAFKA_INTER_BROKER_LISTENER_NAME=LISTENER_INTERNAL
+```
 
 ## How to use
 
