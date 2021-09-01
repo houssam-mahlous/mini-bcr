@@ -52,8 +52,6 @@ public class MentionServiceTest {
         List<Mention> expectedMentions = new ArrayList<Mention>(Arrays.asList(
                 new Mention(), new Mention()));
         when(mentionRepositoryMock.readAllMentions()).thenReturn(expectedMentions);
-
         assertEquals(mentionService.getMentions(), expectedMentions);
     }
-
 }
